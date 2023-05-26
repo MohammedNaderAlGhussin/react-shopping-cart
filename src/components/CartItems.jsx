@@ -24,13 +24,13 @@ const CartItems = ({ show, clicked }) => {
 
         <div className="text-right text-[18px] font-bold mt-2">
           Total Price:{" "}
-          {context.cartItems.length > 0 &&
+          {context.cartItems.length > 0 & context.cartQuantity > 0  ?
             context.cartItems.reduce((total, cartItem) => {
               const item = items.find((i) => i.id === cartItem.id);
               const totalPrice =
                 total + ((item?.price || 0) * cartItem.quantity).toFixed(2);
               return totalPrice;
-            }, 0)}
+            }, 0): null}
           $
         </div>
       </div>
