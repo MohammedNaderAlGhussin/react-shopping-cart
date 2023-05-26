@@ -27,8 +27,8 @@ const CartItems = ({ show, clicked }) => {
           {context.cartItems.length > 0 & context.cartQuantity > 0  ?
             context.cartItems.reduce((total, cartItem) => {
               const item = items.find((i) => i.id === cartItem.id);
-              const totalPrice =
-                total + ((item?.price || 0) * cartItem.quantity).toFixed(2);
+              let totalPrice;
+              totalPrice = total + ((item?.price || 0) * cartItem.quantity).toFixed(2);
               return totalPrice;
             }, 0): null}
           $
